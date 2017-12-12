@@ -13,14 +13,14 @@ import time
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('0.0.0.0', 43123))
+s.bind(('127.0.0.1', 43123))
 s.listen(5)
 print('Waiting for connection')
 
 
 def tcplink(sock, adrr):
     print('Accept new connection from %s:%s...' % addr)
-    sock.send('Welcome')
+    sock.send(b'Welcome')
     while True:
         data = sock.rece(1024)
         time.sleep(1)
