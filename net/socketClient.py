@@ -8,11 +8,17 @@
 """
 import socket
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('45.78.29.202', 43123))
-print(s.recv(1024).decode('utf-8'))
-for data in [b'aaa', b'bbb', b'ccc']:
-    s.send(data)
+try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect(('45.78.29.202', 43123))
     print(s.recv(1024).decode('utf-8'))
-s.send('exit')
-s.close()
+    sa = [b'aaa', b'bbb', b'ccc']
+    sa.append(b'ddd')
+    print(sa)
+    for data in sa:
+        s.send(data)
+        print(s.recv(1024).decode('utf-8'))
+    s.send('exit'.encode('utf-8'))
+    s.close()
+except IOError as e:
+    print('IOError:..', e)
