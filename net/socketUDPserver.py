@@ -14,7 +14,7 @@ try:
     print('Bind UDP to 31323')
     while True:
         data, addr = s.recvfrom(1024)
-        print('Received from %s:%s.' % addr)
+        print('Received from %s:%s.:%s' % (addr, data))
         s.sendto(b'Hello, %s!' % data, addr)
     pass
 except IOError as e:
