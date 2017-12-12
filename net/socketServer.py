@@ -4,7 +4,7 @@
  @author: Zhy
  @file: socket.py
  @time: 17-12-12 上午9:30
-    心有猛虎，细嗅蔷薇 
+    心有猛虎，细嗅蔷薇
 """
 import socket
 import threading
