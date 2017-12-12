@@ -4,7 +4,7 @@
 
 __author__ = 'zhy'
 
-import time, sys, queue
+import time
 from multiprocessing.managers import BaseManager
 
 
@@ -27,6 +27,8 @@ m = QueueManager(address=(server_addr, 5000), authkey=b'abc')
 try:
     m.connect()
 except ConnectionError as e:
+    print('连接异常：%s' % e)
+except Exception as e:
     print('连接异常：%s' % e)
 
 # 获取Queue的对象:
